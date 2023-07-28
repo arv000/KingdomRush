@@ -119,6 +119,14 @@ void WelcomeScene::initButtonStart()
 void WelcomeScene::initSoundButton()
 {
 
+    auto winSize = Director::getInstance()->getWinSize();
+    Sprite* sprite_background_music = Sprite::createWithSpriteFrameName("options_overlay_buttons_0001.png");
+    Point point_background_music;
+    point_background_music.x = 0+sprite_background_music->getContentSize().width/2 + 10;
+    point_background_music.y= winSize.height - sprite_background_music->getContentSize().height/2 -10;
+    sprite_background_music->setPosition(point_background_music);
+    addChild(sprite_background_music);
+
 }
 
 void WelcomeScene::initLogoAnimation()
