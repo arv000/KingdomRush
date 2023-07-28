@@ -23,7 +23,7 @@
  ****************************************************************************/
 
 #include "LoadingScene.h"
-
+#include "WelcomeScene.h"
 USING_NS_CC;
 
 
@@ -46,6 +46,7 @@ bool LoadingScene::init()
     auto visibleSize = Director::getInstance()->getVisibleSize();
     auto background = Sprite::create("Loadding.png");
     background->setRotation(-90.0f);
+    // 设置位置为屏幕居中
     background->setPosition(Point(visibleSize.width/2,visibleSize.height/2));
     addChild(background);
     // 定时更新，用于检测资源是否被加载完成，如果加载完成才跳入到正真的欢迎页面。
@@ -57,6 +58,9 @@ bool LoadingScene::init()
 // 加载资源包括图片，声音等。
 void LoadingScene::loadSource(){
 
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("mainmenu_spritesheet_32_1-hd.plist");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("mainmenu_spritesheet_32_2-hd.plist");
+    numberOfLoadedRes = 100;
 }
 void LoadingScene::logic(float dt)
 {
@@ -65,5 +69,8 @@ void LoadingScene::logic(float dt)
         loadSource();
     }else if(100 == numberOfLoadedRes){
         // 处理跳转动作。
+        auto scene = WelcomeScene::createScene();
+        Director::getInstance()->runWithScene(scene);
+        log("跳转");
     }
 }
