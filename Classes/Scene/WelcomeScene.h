@@ -37,22 +37,24 @@ public:
     virtual bool init();
     
     // implement the "static create()" method manually
-    CREATE_FUNC(WelcomeScene);
-        //  初始化背景图
-        void initBackGround();
-        // 初始化 Logo图
-        void initLogo();
-        // 初始化记录菜单
-        void initMemuSave();
-        // 初始化Credit按钮
-        void initButtonCredit();
-        // 初始化start 按钮
-        void initButtonStart();
+    CREATE_FUNC(WelcomeScene)
+        void initBackGround(); //  初始化背景图
+        void initLogo();        // 初始化 Logo图
+        void initMemuSave();    // 初始化记录菜单
+        void initButtonCredit(); // 初始化Credit按钮
+        void initButtonStart(); // 初始化start 按钮
+
         // 初始化声音按钮
         void initSoundButton();
-        // 初始化LogoAnimation();
+
+        // 初始化LogoAnimation(); logo 动画效果
         void initLogoAnimation();
 
+        // 初始化开始按钮动画
+        void initButtonStartAnimation();
+
+        // 初始化Credit动画
+        void initButtonCreditAnimation();
 
 private:
 

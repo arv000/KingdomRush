@@ -70,7 +70,7 @@ void LoadingScene::logic(float dt)
     }else if(100 == numberOfLoadedRes){
         // 处理跳转动作。
         auto scene = WelcomeScene::createScene();
-        Director::getInstance()->runWithScene(scene);
-        log("跳转");
+        Director::getInstance()->replaceScene(scene);
+
     }
 }

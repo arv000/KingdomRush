@@ -77,34 +77,35 @@ void WelcomeScene::initLogo()
     // 设置Logo局上（顶着上面排放）
     point_logo_.y = visible_size_.height - (sprite_logo_->getContentSize().height/2);
     // 初始化效果为0.2f,初始化为缩小状态，图片加载完使其变大，有弹出效果。
-    sprite_logo_->setScale(1.0f);
+    sprite_logo_->setScale(0.2f);
     sprite_logo_->setPosition(point_logo_);
-    addChild(sprite_logo_);
+    addChild(sprite_logo_,9);
 }
 
 void WelcomeScene::initMemuSave()
 {
-    sprite_menu_save_ = Sprite::createWithSpriteFrameName("mainmenu_saveslot_bg.png");
-    point_menu_save_.x = point_logo_.x;
-    point_menu_save_.y = point_logo_.y - sprite_logo_->getContentSize().height*1.4/2;
-    sprite_menu_save_->setPosition(point_menu_save_);
-    addChild(sprite_menu_save_,0);
+//    sprite_menu_save_ = Sprite::createWithSpriteFrameName("mainmenu_saveslot_bg.png");
+//    point_menu_save_.x = point_logo_.x;
+//    point_menu_save_.y = point_logo_.y - sprite_logo_->getContentSize().height*1.4/2;
+//    sprite_menu_save_->setPosition(point_menu_save_);
+//    addChild(sprite_menu_save_,0);
 
-    sprite_menu_save_close_ = MenuItemSprite::create(Sprite::createWithSpriteFrameName("mainmenu_saveslot_close_0001.png"),
-                                                     Sprite::createWithSpriteFrameName("mainmenu_saveslot_close_0002.png"));
-    point_menu_save_close_.x = point_logo_.x;
-    point_menu_save_close_.y = point_menu_save_.y - sprite_menu_save_->getContentSize().height/2 + sprite_menu_save_close_->getContentSize().height/2;
-    sprite_menu_save_close_->setPosition(point_menu_save_close_);
+//    sprite_menu_save_close_ = MenuItemSprite::create(Sprite::createWithSpriteFrameName("mainmenu_saveslot_close_0001.png"),
+//                                                     Sprite::createWithSpriteFrameName("mainmenu_saveslot_close_0002.png"));
+//    point_menu_save_close_.x = point_logo_.x;
+//    point_menu_save_close_.y = point_menu_save_.y - sprite_menu_save_->getContentSize().height/2 + sprite_menu_save_close_->getContentSize().height/2;
+//    sprite_menu_save_close_->setPosition(point_menu_save_close_);
 
-    auto menu = Menu::create(sprite_menu_save_close_,nullptr);
-     menu->setPosition(Vec2::ZERO);
-     addChild(menu,0);
+//    auto menu = Menu::create(sprite_menu_save_close_,nullptr);
+//     menu->setPosition(Vec2::ZERO);
+//     addChild(menu,0);
 }
 
 void WelcomeScene::initButtonCredit()
 {
     sprite_button_credit_= Sprite::createWithSpriteFrameName("menu_creditschain_0001.png");
     sprite_button_credit_->setPosition(point_logo_.x,point_logo_.y- 180) ;
+    sprite_button_credit_->setVisible(false);
     addChild(sprite_button_credit_,0);
 }
 
@@ -112,6 +113,8 @@ void WelcomeScene::initButtonStart()
 {
     sprite_button_start_ = Sprite::createWithSpriteFrameName("menu_startchain_0001.png");
     sprite_button_start_->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
+    // 设置隐藏在播放动画的时候将其显示出来。
+    sprite_button_start_->setVisible(false);
     sprite_button_start_->setPosition(point_logo_.x,point_logo_.y);
     addChild(sprite_button_start_,1);
 }
@@ -131,11 +134,49 @@ void WelcomeScene::initSoundButton()
 
 void WelcomeScene::initLogoAnimation()
 {
+    auto sprite = Sprite::createWithSpriteFrameName("logo_brillo_0001.png");
+    sprite->setPosition(point_logo_);
+    // 生成祯动画
+    SpriteFrame * frame = nullptr;
+    Vector<SpriteFrame*> aFrames(20);
+    for (int len = 1; len <= 21; len ++) {
 
+        frame  = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("logo_brillo_00%02d.png",len));
+        if(nullptr != frame){
+            aFrames.pushBack(frame);
+        }
+    }
+    addChild(sprite,10);
+    auto animation = Animation::createWithSpriteFrames(aFrames,0.1f);
+    sprite->runAction(RepeatForever::create(Animate::create(animation)));
+}
+
+// 初始化
+void WelcomeScene::initButtonStartAnimation()
+{
+    sprite_button_start_->setVisible(true);
+    // 使得精灵移动
+    sprite_button_start_->runAction(MoveTo::create(0.3f,Point(point_logo_.x,point_logo_.y - 180)));
+}
+
+void WelcomeScene::initButtonCreditAnimation()
+{
+    sprite_button_credit_->runAction(
+                Sequence::create(
+                    DelayTime::create(0.3f),
+                    CallFuncN::create(CC_CALLBACK_0(Sprite::setVisible,sprite_button_credit_,true)),
+                    MoveTo::create(0.3f,Point(point_logo_.x,point_logo_.y-360)),NULL));
 }
 
 // 过渡动画播放完毕后，该方法会被自动调用。
 void WelcomeScene::onEnterTransitionDidFinish()
 {
     log("onEnterTransitionDidFinish");
+    auto Sepquence = Sequence::create(ScaleTo::create(0.5f,1.5f,1.5f),
+                                      ScaleTo::create(0.2f,1.0f,1.0f),
+                                      CallFuncN::create(CC_CALLBACK_0(WelcomeScene::initLogoAnimation,this)),
+                                      CallFuncN::create(CC_CALLBACK_0(WelcomeScene::initButtonStartAnimation,this)),
+                                      CallFuncN::create(CC_CALLBACK_0(WelcomeScene::initButtonCreditAnimation,this)),
+                                      NULL);
+    sprite_logo_->runAction(Sepquence);
 }
