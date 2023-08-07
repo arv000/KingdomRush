@@ -56,6 +56,11 @@ public:
         // 初始化Credit动画
         void initButtonCreditAnimation();
 
+        // 设置menu save精灵可见
+        void setSpriteMenuSaveVisible();
+
+        // 设置menu save精灵不可见
+        void setSpriteMenuSaveInvisable();
 private:
 
         // 用于记录屏幕的大小
@@ -68,17 +73,47 @@ private:
         Sprite* sprite_menu_save_;
 
         MenuItemSprite* sprite_menu_save_close_;
-
+        // 保存菜单关闭按钮
         Point point_menu_save_close_;
 
         Point point_menu_save_;
         // 游戏开始按钮
         Sprite* sprite_button_start_;
 
-        //
+        // credit按钮
         Sprite* sprite_button_credit_;
 
+        // 背映音乐按钮精灵
+        Sprite* sprite_background_music_;
 
+        // 背景音效按钮精灵
+        Sprite* sprite_background_effect_;
+        // 初始化按钮消息
+        void intiEvent();
+
+        void initButtonStartEvent();
+
+        bool touchBeganButtonStart(Touch *touch,Event *event);
+
+        bool touchEndedButtonStart(Touch *touch,Event *event);
+
+        void touchMenuSaveClose(cocos2d::Ref *pSender);
+
+        void initBackgroundMusicEvent();
+        // 处理背景音乐鼠标点击事件
+        bool touchBeganBackgroundMusic(Touch *touch,Event *event);
+        // 处理背景音乐鼠标弹起事件
+        bool touchEndedBackgroundMusic(Touch *touch,Event *event);
+
+        void initBackgroundEffectEvent();
+        // 处理背景音效鼠标点击事件
+        bool touchBeganBackgroundEffect(Touch *touch,Event *event);
+        // 处理背景音效鼠标弹起事件
+        bool touchEndedBackgroundEffect(Touch *touch,Event *event);
+
+        void initKeyEvent();
+        // 处理按键按下事件
+        void onKeyRelease(EventKeyboard::KeyCode keyCode,Event *event);
 
         void onEnterTransitionDidFinish();
 };
