@@ -59,11 +59,13 @@ list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/Scene/LoadingScene.cpp
      Classes/Scene/WelcomeScene.cpp
+     Classes/Sprite/SlotMenuSprite.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/Scene/LoadingScene.h
      Classes/Scene/WelcomeScene.h
+     Classes/Sprite/SlotMenuSprite.h
      )
 
 if(ANDROID)

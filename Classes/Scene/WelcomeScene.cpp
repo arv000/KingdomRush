@@ -23,7 +23,7 @@
  ****************************************************************************/
 
 #include "WelcomeScene.h"
-
+#include "Sprite/SlotMenuSprite.h"
 USING_NS_CC;
 
 
@@ -89,6 +89,20 @@ void WelcomeScene::initMemuSave()
     point_menu_save_.x = point_logo_.x;
     point_menu_save_.y = point_logo_.y - sprite_logo_->getContentSize().height*0.7;
     sprite_menu_save_->setPosition(Point(point_menu_save_.x ,point_menu_save_.y - 500));
+
+    auto slot_0 = SlotMenuSprite::createMenu(2);
+    slot_0->setPosition(Point(sprite_menu_save_->getContentSize().width/2,sprite_menu_save_->getContentSize().height/2));
+    sprite_menu_save_->addChild(slot_0);
+
+
+    auto slot_1 = SlotMenuSprite::createMenu(1);
+    slot_1->setPosition(Point(sprite_menu_save_->getContentSize().width/4 - 30,sprite_menu_save_->getContentSize().height/2));
+    sprite_menu_save_->addChild(slot_1);
+
+    auto slot_2 = SlotMenuSprite::createMenu(3);
+    slot_2->setPosition(Point(sprite_menu_save_->getContentSize().width/4*3 + 30,sprite_menu_save_->getContentSize().height/2));
+    sprite_menu_save_->addChild(slot_2);
+
     addChild(sprite_menu_save_,0);
 
     sprite_menu_save_close_ = MenuItemSprite::create(Sprite::createWithSpriteFrameName("mainmenu_saveslot_close_0001.png"),
