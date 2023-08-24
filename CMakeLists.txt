@@ -60,12 +60,16 @@ list(APPEND GAME_SOURCE
      Classes/Scene/LoadingScene.cpp
      Classes/Scene/WelcomeScene.cpp
      Classes/Sprite/SlotMenuSprite.cpp
+     Classes/Layer/GameLayer.cpp
+     Classes/Layer/GameMenuLayer.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/Scene/LoadingScene.h
      Classes/Scene/WelcomeScene.h
      Classes/Sprite/SlotMenuSprite.h
+     Classes/Layer/GameLayer.h
+     Classes/Layer/GameMenuLayer.h
      )
 
 if(ANDROID)

@@ -1,5 +1,5 @@
 #include "SlotMenuSprite.h"
-
+#include "../Layer/GameLayer.h"
 SlotMenuSprite::SlotMenuSprite()
 {
 
@@ -89,6 +89,7 @@ bool SlotMenuSprite::touchBeganSaveslot(Touch *touch, Event *event)
 bool SlotMenuSprite::touchEndedSaveslot(Touch *touch, Event *event)
 {
     // 跳转到游戏界面
+    Director::getInstance()->replaceScene(GameLayer::createScene());
     return  false;
 }
 
