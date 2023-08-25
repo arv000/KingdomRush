@@ -60,6 +60,8 @@ list(APPEND GAME_SOURCE
      Classes/Scene/LoadingScene.cpp
      Classes/Scene/WelcomeScene.cpp
      Classes/Sprite/SlotMenuSprite.cpp
+     Classes/Sprite/MapFlagSprite.cpp
+     Classes/Sprite/RoadSprite.cpp
      Classes/Layer/GameLayer.cpp
      Classes/Layer/GameMenuLayer.cpp
      )
@@ -68,6 +70,8 @@ list(APPEND GAME_HEADER
      Classes/Scene/LoadingScene.h
      Classes/Scene/WelcomeScene.h
      Classes/Sprite/SlotMenuSprite.h
+     Classes/Sprite/MapFlagSprite.h
+     Classes/Sprite/RoadSprite.h
      Classes/Layer/GameLayer.h
      Classes/Layer/GameMenuLayer.h
      )

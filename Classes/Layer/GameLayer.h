@@ -26,6 +26,7 @@
 #define __LAYER_GAME_LAYER_H__
 
 #include "cocos2d.h"
+#include "../Sprite/RoadSprite.h"
 USING_NS_CC;
 
 class GameLayer : public Layer
@@ -34,12 +35,22 @@ public:
     static cocos2d::Scene* createScene();
 
     virtual bool init();
-        
+    void initMapFlagPoint();
+    void initMapFlag();
+    void initRoad();
+    void initEvent();
+
     // implement the "static create()" method manually
     CREATE_FUNC(GameLayer)
 
-    Size win_size_;
-    Sprite *sprite_background_;
+        Size win_size_;
+        Sprite *sprite_background_;
+        RoadSprite *sprite_road_;
+        // 用于记录flag的坐标。
+        std::vector<Point> vector_map_flag_point_;
+
+        void onTouchesMoved(const std::vector<Touch*>&touches , Event *evet);
+        void onEnterTransitionDidFinish();
 };
 
 #endif // __LAYER_GAME_LAYER_H__
