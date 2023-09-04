@@ -130,9 +130,12 @@ void RoadSprite::initRoadAnimation()
         Vector<SpriteFrame*> aFrames5;
         for (int len = 1;len <= 25; len++)
         {
-            frame5 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_5to6_00%02d.png",len));
-            if(frame5!=nullptr)
-                aFrames5.pushBack(frame5);
+            if((len -1) %3 == 0){
+                frame5 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_5to6_00%02d.png",len));
+                if(frame5!=nullptr)
+                    aFrames5.pushBack(frame5);
+            }
+
         }
         vector_animation_road_.pushBack(Animation::createWithSpriteFrames(aFrames5,0.07f));
 
@@ -140,9 +143,11 @@ void RoadSprite::initRoadAnimation()
         Vector<SpriteFrame*> aFrames6;
         for (int len = 1;len <= 25; len++)
         {
-            frame6 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_6to7_00%02d.png",len));
-            if(frame6!=nullptr)
-                aFrames6.pushBack(frame6);
+             if((len -1) %3 == 0){
+                frame6 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_6to7_00%02d.png",len));
+                if(frame6!=nullptr)
+                    aFrames6.pushBack(frame6);
+             }
         }
         vector_animation_road_.pushBack(Animation::createWithSpriteFrames(aFrames6,0.07f));
 
@@ -150,9 +155,11 @@ void RoadSprite::initRoadAnimation()
         Vector<SpriteFrame*> aFrames7;
         for (int len = 1;len <= 22; len++)
         {
-            frame7 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_7to8_00%02d.png",len));
-            if(frame7!=nullptr)
-                aFrames7.pushBack(frame7);
+            if((len -1) %3 == 0){
+                frame7 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_7to8_00%02d.png",len));
+                if(frame7!=nullptr)
+                    aFrames7.pushBack(frame7);
+             }
         }
         vector_animation_road_.pushBack(Animation::createWithSpriteFrames(aFrames7,0.07f));
 
@@ -160,9 +167,11 @@ void RoadSprite::initRoadAnimation()
         Vector<SpriteFrame*> aFrames8;
         for (int len = 1;len <= 22; len++)
         {
-            frame8 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_8to9_00%02d.png",len));
-            if(frame8!=nullptr)
-                aFrames8.pushBack(frame8);
+            if((len -1) %3 == 0){
+                frame8 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_8to9_00%02d.png",len));
+                if(frame8!=nullptr)
+                    aFrames8.pushBack(frame8);
+            }
         }
         vector_animation_road_.pushBack(Animation::createWithSpriteFrames(aFrames8,0.1f));
 
@@ -170,9 +179,11 @@ void RoadSprite::initRoadAnimation()
         Vector<SpriteFrame*> aFrames9;
         for (int len = 1;len <= 10; len++)
         {
-            frame9 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_9to10_00%02d.png",len));
-            if(frame9!=nullptr)
-                aFrames9.pushBack(frame9);
+            if((len -1) %3 == 0){
+                frame9 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_9to10_00%02d.png",len));
+                if(frame9!=nullptr)
+                    aFrames9.pushBack(frame9);
+            }
         }
         vector_animation_road_.pushBack(Animation::createWithSpriteFrames(aFrames9,0.1f));
 
@@ -180,9 +191,11 @@ void RoadSprite::initRoadAnimation()
         Vector<SpriteFrame*> aFrames10;
         for (int len = 1;len <= 13; len++)
         {
-            frame10 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_10to11_00%02d.png",len));
-            if(frame10!=nullptr)
-                aFrames10.pushBack(frame10);
+            if((len -1) %3 == 0){
+                frame10 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_10to11_00%02d.png",len));
+                if(frame10!=nullptr)
+                    aFrames10.pushBack(frame10);
+            }
         }
         vector_animation_road_.pushBack(Animation::createWithSpriteFrames(aFrames10,0.07f));
 
@@ -190,9 +203,11 @@ void RoadSprite::initRoadAnimation()
         Vector<SpriteFrame*> aFrames11;
         for (int len = 1;len <= 10; len++)
         {
-            frame11 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_11to12_00%02d.png",len));
-            if(frame11!=nullptr)
-                aFrames11.pushBack(frame11);
+            if((len -1) %3 == 0){
+                frame11 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_11to12_00%02d.png",len));
+                if(frame11!=nullptr)
+                    aFrames11.pushBack(frame11);
+            }
         }
         vector_animation_road_.pushBack(Animation::createWithSpriteFrames(aFrames11,0.1f));
 
@@ -200,9 +215,11 @@ void RoadSprite::initRoadAnimation()
         Vector<SpriteFrame*> aFrames12;
         for (int len = 1;len <= 7; len++)
         {
-            frame12 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_12to13_00%02d.png",len));
-            if(frame12!=nullptr)
-                aFrames12.pushBack(frame12);
+             if((len -1) %3 == 0){
+                frame12 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_12to13_00%02d.png",len));
+                if(frame12!=nullptr)
+                    aFrames12.pushBack(frame12);
+             }
         }
         vector_animation_road_.pushBack(Animation::createWithSpriteFrames(aFrames12,0.1f));
 
@@ -210,9 +227,11 @@ void RoadSprite::initRoadAnimation()
         Vector<SpriteFrame*> aFrames13;
         for (int len = 1;len <= 7; len++)
         {
-            frame13 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_12to13_00%02d.png",len));
-            if(frame13!=nullptr)
-                aFrames13.pushBack(frame13);
+             if((len -1) %3 == 0){
+                frame13 = SpriteFrameCache::getInstance()->getSpriteFrameByName(StringUtils::format("mapRoad_12to13_00%02d.png",len));
+                if(frame13!=nullptr)
+                    aFrames13.pushBack(frame13);
+             }
         }
         vector_animation_road_.pushBack(Animation::createWithSpriteFrames(aFrames13,0.1f));
 }

@@ -59,6 +59,7 @@ list(APPEND GAME_SOURCE
      Classes/AppDelegate.cpp
      Classes/Scene/LoadingScene.cpp
      Classes/Scene/WelcomeScene.cpp
+     Classes/Scene/ChooseDifficultyScene.cpp
      Classes/Sprite/SlotMenuSprite.cpp
      Classes/Sprite/MapFlagSprite.cpp
      Classes/Sprite/RoadSprite.cpp
@@ -69,6 +70,7 @@ list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/Scene/LoadingScene.h
      Classes/Scene/WelcomeScene.h
+     Classes/Scene/ChooseDifficultyScene.h
      Classes/Sprite/SlotMenuSprite.h
      Classes/Sprite/MapFlagSprite.h
      Classes/Sprite/RoadSprite.h

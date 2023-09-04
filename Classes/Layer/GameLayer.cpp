@@ -80,7 +80,7 @@ void GameLayer::initMapFlagPoint()
 
 void GameLayer::initMapFlag()
 {
-    for(int i = 0 ; i <= 13; i ++){
+    for(int i = 0 ; i < 13; i ++){
         auto mapFlag = MapFlagSprite::createWithLevel(i);
         mapFlag->setPosition(vector_map_flag_point_.at(i));
         addChild(mapFlag);

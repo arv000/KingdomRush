@@ -11,10 +11,11 @@ public:
     ~MapFlagSprite();
     virtual bool initWithLevel(int num);
     CREATE_FUNC(MapFlagSprite)
-
-
     static MapFlagSprite *createWithLevel(int num);
 
+    void initEvent();
+    bool onTouchBeganFlag(Touch* touch,Event *event);
+    bool onTouchEndedFlag(Touch* touch,Event *event);
 private:
     Sprite * sprite_flag_;
     Sprite * sprite_star_0;
