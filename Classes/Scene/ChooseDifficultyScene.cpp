@@ -1,5 +1,6 @@
 #include "ChooseDifficultyScene.h"
-
+#include "../Layer/PlayerStateMenuLayer.h"
+#include "GameScene.h"
 USING_NS_CC;
 
 
@@ -15,6 +16,7 @@ Scene* ChooseDifficultyScene::createSceneWithLevel(int level)
 void ChooseDifficultyScene::initWithLevel(int level)
 {
     ValueVector txt_description = FileUtils::getInstance()->getValueVectorFromFile(StringUtils::format("xml/level%d_description.xml",level));
+    setLevel(level);
     int i = 0;
     for(auto& e:txt_description){
         auto txt_map = txt_description.at(i).asValueMap();
@@ -101,7 +103,8 @@ bool ChooseDifficultyScene::init()
 
     // 进度战斗按钮
     auto sprite_start_mode = MenuItemSprite::create(Sprite::createWithSpriteFrameName("levelSelect_startMode_0001.png"),
-                                                     Sprite::createWithSpriteFrameName("levelSelect_startMode_0002.png"));
+                                                    Sprite::createWithSpriteFrameName("levelSelect_startMode_0002.png"),
+                                                    CC_CALLBACK_1(ChooseDifficultyScene::touchPlayGame,this));
 
     Menu* menu_start_mode = Menu::create(sprite_start_mode,nullptr);
     sprite_start_mode->setPosition(Point(visible_size_.width*0.8,100));
@@ -259,4 +262,9 @@ void ChooseDifficultyScene::touchStarMenu3(Ref *)
 void ChooseDifficultyScene::touchReturnMapSenec(Ref *)
 {
     Director::getInstance()->popScene();
+}
+
+void ChooseDifficultyScene::touchPlayGame(Ref *pSpender)
+{
+    Director::getInstance()->replaceScene(GameScene::createGameScene(getLevel(),getDifficulty()));
 }

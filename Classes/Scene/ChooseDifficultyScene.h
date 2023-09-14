@@ -35,6 +35,7 @@ public:
     virtual bool init();
     void initToggle();
     CC_SYNTHESIZE(int,difficulty_,Difficulty)
+    CC_SYNTHESIZE(int,level_,Level)
     // implement the "static create()" method manually
     CREATE_FUNC(ChooseDifficultyScene)
 
@@ -67,6 +68,7 @@ public:
         void touchStarMenu3(Ref* pSpender);
 
         void touchReturnMapSenec(Ref* pSpender);
+        void touchPlayGame(Ref* pSpender);
 };
 
 #endif // __LOADING_SCENE_H__

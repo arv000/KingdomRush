@@ -60,22 +60,26 @@ list(APPEND GAME_SOURCE
      Classes/Scene/LoadingScene.cpp
      Classes/Scene/WelcomeScene.cpp
      Classes/Scene/ChooseDifficultyScene.cpp
+     Classes/Scene/GameScene.cpp
      Classes/Sprite/SlotMenuSprite.cpp
      Classes/Sprite/MapFlagSprite.cpp
      Classes/Sprite/RoadSprite.cpp
      Classes/Layer/GameLayer.cpp
      Classes/Layer/GameMenuLayer.cpp
+     Classes/Layer/PlayerStateMenuLayer.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/Scene/LoadingScene.h
      Classes/Scene/WelcomeScene.h
      Classes/Scene/ChooseDifficultyScene.h
+     Classes/Scene/GameScene.h
      Classes/Sprite/SlotMenuSprite.h
      Classes/Sprite/MapFlagSprite.h
      Classes/Sprite/RoadSprite.h
      Classes/Layer/GameLayer.h
      Classes/Layer/GameMenuLayer.h
+     Classes/Layer/PlayerStateMenuLayer.h
      )
 
 if(ANDROID)
