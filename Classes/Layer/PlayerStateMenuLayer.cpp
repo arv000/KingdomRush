@@ -13,6 +13,21 @@ bool PlayerStateMenuLayer::init()
     return true;
 }
 
+void PlayerStateMenuLayer::setLife(int life)
+{
+    label_life_->setString(StringUtils::format("%d",life));
+}
+
+void PlayerStateMenuLayer::setGold(int gold)
+{
+    label_gold_->setString(StringUtils::format("%d",gold));
+}
+
+void PlayerStateMenuLayer::setWave(int thisWave, int tolalWave)
+{
+    label_wave_->setString(StringUtils::format("WAVE %d %d",thisWave,tolalWave));
+}
+
 void PlayerStateMenuLayer::initSprite()
 {
     // 显示 生命值,金币,怪物波数的背景
@@ -183,4 +198,5 @@ void PlayerStateMenuLayer::onTouchEnedSSpritePack(Touch *touch, Event *event)
 void PlayerStateMenuLayer::onEnterTransitionDidFinish()
 {
     sprite_state_->runAction(MoveBy::create(0.2f,Point(0,-100)));
+    sprite_pause_->runAction(MoveBy::create(0.2f,Point(0,-100)));
 }

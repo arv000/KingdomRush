@@ -32,10 +32,19 @@ class PlayerStateMenuLayer : public Layer
 {
 public:
     virtual bool init();
-     void initSprite();
-     void initEvent();
+
     // implement the "static create()" method manually
     CREATE_FUNC(PlayerStateMenuLayer)
+    // 获取或者设置当前关卡的等级
+    CC_SYNTHESIZE(int,level_,Level)
+    // 获取或者展示当前关卡的难度
+    CC_SYNTHESIZE(int,difficult_,Difficult)
+    // 设置当前生命值接口
+    void setLife(int life);
+    // 设置当前金币值接口
+    void setGold(int gold);
+    // 设置怪物波数接口
+    void setWave(int thisWave,int tolalWave);
 private:
     Size win_size_;
     Sprite * sprite_state_;
@@ -72,6 +81,9 @@ private:
     void onTouchEnedSSpritePack(Touch* touch,Event *event);
 
     void onEnterTransitionDidFinish();
+     // 初始化
+    void initSprite();
+    void initEvent();
 
 };
 

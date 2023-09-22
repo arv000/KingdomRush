@@ -24,8 +24,8 @@
 
 #include "GameScene.h"
 #include "../Layer/PlayerStateMenuLayer.h"
-
-
+#include "BaseMapLayer.h"
+#include "Level0.h"
 Scene *GameScene::createGameScene(int level, int difficulty)
 {
     auto scene = new GameScene();
@@ -40,6 +40,14 @@ Scene *GameScene::createGameScene(int level, int difficulty)
 bool GameScene::initGame(int level, int difficulty)
 {
     auto playerStateMenuLayer = PlayerStateMenuLayer::create();
+
+    BaseMapLayer* game;
+    game = Level0::createGame(difficulty);
+    playerStateMenuLayer->setLevel(level);
+    playerStateMenuLayer->setDifficult(difficulty);
+
+    game->bindPlayerStateMenu(playerStateMenuLayer);
+    addChild(game);
     addChild(playerStateMenuLayer);
     return true;
 }

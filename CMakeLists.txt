@@ -67,6 +67,9 @@ list(APPEND GAME_SOURCE
      Classes/Layer/GameLayer.cpp
      Classes/Layer/GameMenuLayer.cpp
      Classes/Layer/PlayerStateMenuLayer.cpp
+     Classes/Layer/Map/BaseMapLayer.cpp
+     Classes/Layer/Map/Level0.cpp
+     Classes/Node/GroupMonsterNode.cpp
      )
 list(APPEND GAME_HEADER
      Classes/AppDelegate.h
@@ -80,6 +83,9 @@ list(APPEND GAME_HEADER
      Classes/Layer/GameLayer.h
      Classes/Layer/GameMenuLayer.h
      Classes/Layer/PlayerStateMenuLayer.h
+     Classes/Layer/Map/BaseMapLayer.h
+     Classes/Layer/Map/Level0.h
+     Classes/Node/GroupMonsterNode.h
      )
 
 if(ANDROID)
@@ -150,6 +156,11 @@ endif()
 target_link_libraries(${APP_NAME} cocos2d)
 target_include_directories(${APP_NAME}
         PRIVATE Classes
+        PRIVATE Classes/Layer
+        PRIVATE Classes/Layer/Map
+        PRIVATE Classes/Scene
+        PRIVATE Classes/Sprite
+        PRIVATE Classes/Node
         PRIVATE ${COCOS2DX_ROOT_PATH}/cocos/audio/include/
 )
 
