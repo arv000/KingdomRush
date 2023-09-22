@@ -34,7 +34,7 @@ class BaseMapLayer : public Layer
 {
 public:
     // implement the "static create()" method manually
-    CREATE_FUNC(BaseMapLayer)
+   // CREATE_FUNC(BaseMapLayer)
 
     void bindPlayerStateMenu( PlayerStateMenuLayer * playerStateMenuLayer);
     CC_SYNTHESIZE(int,level_,Level)

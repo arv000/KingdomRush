@@ -20,4 +20,20 @@ bool Level0::initWithDifficulty(int difficulty)
      setLevel(0);
      initMap();
     return true;
+
+}
+
+void Level0::addOrnament()
+{
+
+}
+
+void Level0::addTerrains()
+{
+
+}
+
+void Level0::onExit()
+{
+
 }
